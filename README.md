@@ -21,6 +21,6 @@ for complete list, see [pyproject.toml](pyproject.toml)
 ## How to use it?
 
 1. Install Copier: `pip install copier`
-2. Create a new project: `copier gh:aalars/omnomnomnivoor`
+2. Create a new project: `copier copy --vcs-ref master gh:aalars/omnomnomnivoor /part/to/your/project`
 3. Answer the questions
 4. Done!
