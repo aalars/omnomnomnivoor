@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  django:
+    environment:
+      - POETRY_VIRTUALENVS_CREATE=0
+      - POETRY_CACHE_DIR=/root/.cache/pypoetry
+    build: .
+    ports:
+      - "8000:80"
+    command: ["/usr/bin/wait-for-it.sh", "postgres:5432", "-t", "60", "--", "python", "manage.py", "runserver", "0.0.0.0:80"]
+    volumes:
+      - .:/app
+      - ipython_data_local:/root/.ipython/profile_default
+    restart: unless-stopped
+    depends_on:
+      - postgres
+
+  postgres:
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    image: postgres:16
+
+volumes:
+  postgres_data:
+  ipython_data_local: {}

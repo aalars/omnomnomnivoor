@@ -1,0 +1,17 @@
+---
+project_name:
+  type: str
+  help: Project name
+
+your_name:
+  type: str
+  help: Your name
+
+your_email:
+  type: str
+  help: Your email
+
+_exclude:
+  - .git
+  - copier.yml
+  - README.md
