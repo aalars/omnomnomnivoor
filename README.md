@@ -1,3 +1,6 @@
+# OmnOmnOmnivoor
+
+![My animated logo](omnomnomnivoor.png)
 
 Just a simple template for initializing a Dockerized Django project with Poetry and Postgres. Made with [Copier](https://github.com/copier-org/copier).
 
